@@ -31,7 +31,9 @@ add_to_hat_frame.grid(column=0, row=0)
 
 # This is the title label inside of my frame for adding balls into the hat.
 # We put it into the top left corner of the program.
-title_label = ttk.Label(add_to_hat_frame, text="Choose a color and add whatever amount you want!")
+title_label = ttk.Label(add_to_hat_frame, text="Choose a color for the ball.\n"
+                                               "Add any amount you want.\n"
+                                               "Hit the ADD button to add the ball(s) to the hat!")
 title_label.grid(row=0, column=0, columnspan=2)
 
 # We need to create the entry field for adding items into our interface as well as the add button.
@@ -57,6 +59,22 @@ amount_label = ttk.Label(add_to_hat_frame, text="Amount to Add").grid(row=2, col
 # sends it to the Hat class's function to add contents to the hat.
 add_button = ttk.Button(add_to_hat_frame, text="Add", command=lambda: click_add_button()).grid(row=3, column=0,
                                                                                                columnspan=2)
+# This is the frame for the next part of the program. This part requires the user to create a list of what they expect
+# the outcome of the random draw should be. The list will be continually updated and displayed on the right hand side
+# in a new frame. I need to learn how to make my frames the same size to make it look better, or maybe get rid of the
+# visual part of the frames and add these steps, that the user must do to make the program run, into a continuously
+# updating frame, where the user hits a "next" button and the screen changes and you're on to the next step,
+what_to_draw_frame = ttk.Frame(root, borderwidth=4, relief="ridge", padding=5)
+what_to_draw_frame.grid(row=1, column=0, columnspan=2)
+
+draw_label = ttk.Label(what_to_draw_frame, text="Which color of balls do you expect to be drawn?\nThe drawing list "
+                                                "is updated on the side ==>")
+
+draw_label.grid(row=0, column=0, columnspan=2)
+
+
+
+
 
 root.mainloop()
 
