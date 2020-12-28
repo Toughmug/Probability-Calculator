@@ -17,13 +17,12 @@ def click_add_button():
 # from the way the test_module uses it. We have to give the user the ability to add ass many colors they want to
 # the hat.
 user_hat = prob_calculator.Hat()
-print(user_hat)
 
 # 3. Now we have to create the interface using tkinter.
 # We initialize the window and set a title.
 root = Tk()
 root.title("Probability Calculator")
-root.geometry("300x300")
+root.geometry("350x300")
 
 # We create a frame for our window to use the newer ttk code
 # . This can be one of: flat (default), raised, sunken, solid, ridge, or groove.
