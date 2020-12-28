@@ -16,6 +16,28 @@ class Hat:
             for i in range(amount):
                 self.contents.append(color)
 
+    def __str__(self):
+        # This is checking for an empty list. Which will then return the "empty message."
+        if not self.contents:
+            return "The Hat is currently empty"
+
+        # We create a dictionary from the list, creating an index for each color there is.
+        content_dict = dict()
+        for color in self.contents:
+            if color not in content_dict:
+                content_dict[color] = 1
+            else:
+                content_dict[color] += 1
+
+        # Then we create the string from the dictionary we just created.
+
+        contents = ', '.join('({}, {})'.format(key, val) for key, val in sorted(content_dict.items()))
+        return contents
+
+    def add_color_ball(self, color, amount):
+        for i in range(amount):
+            self.contents.append(color)
+
     def draw(self, draw_amount):
         balls_drawn = list()
         length = len(self.contents) - 1
@@ -36,6 +58,8 @@ class Hat:
         return balls_drawn
 
 
+# These functions are used to run the experiment. They are all pretty much done and don't need to be touched, unless
+# you think of a better way to do it again.
 def create_drawn_dict(list_of_balls):
     # This function is used to create a dictionary from the list of the balls that were drawn form the
     # hat in the experiment function. We create a dictionary to make it easy to compare to further in
